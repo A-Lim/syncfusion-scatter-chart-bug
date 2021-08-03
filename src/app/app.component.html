@@ -1,0 +1,29 @@
+<ejs-chart #scatterChart 
+  [chartArea]="chartArea" 
+  [tooltip]="toolTipSettings" 
+  [primaryXAxis]="primaryXAxis" 
+  [primaryYAxis]="primaryYAxis">
+  <e-series-collection>
+    <ng-container *ngIf="seriesData else emptyChart">
+      <e-series *ngFor="let series of seriesData"
+        [dataSource]="series.dataSource"
+        [marker]="markerSettings"
+        [fill]="series.color"
+        [name]="series.name"
+        type="Scatter" 
+        xName="xValue" 
+        yName="yValue">
+      </e-series>
+    </ng-container>
+
+    <ng-template #emptyChart>
+      <e-series 
+        [dataSource]="[]"
+        [marker]="markerSettings"
+        type="Scatter" 
+        xName="xValue" 
+        yName="yValue">
+      </e-series>
+    </ng-template>
+  </e-series-collection>
+</ejs-chart>
