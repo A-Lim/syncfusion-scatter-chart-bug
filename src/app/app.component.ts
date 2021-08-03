@@ -46,6 +46,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    // timeout to stimulate delay in network request
     setTimeout(() => {
       this.seriesData = [
         <SeriesDataModel>{
